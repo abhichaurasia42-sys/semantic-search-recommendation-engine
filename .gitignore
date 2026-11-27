@@ -1,0 +1,30 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+src/*.egg-info/
+build/
+dist/
+
+.env
+.env.*
+
+# Trained model artifacts / caches -- regenerate with:
+#   python scripts/generate_click_data.py
+#   python scripts/train_reranker.py
+models/*.joblib
+models/*.npy
+models/*.json
+!models/.gitkeep
+
+data/vector_store.db
+data/click_logs.jsonl
+
+# OS
+.DS_Store

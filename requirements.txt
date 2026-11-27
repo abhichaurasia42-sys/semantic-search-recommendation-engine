@@ -1,0 +1,19 @@
+# Core retrieval / ranking
+rank-bm25==0.2.2
+scikit-learn==1.6.1
+numpy==2.0.2
+joblib==1.5.3
+sentence-transformers==5.1.2
+
+# API
+fastapi==0.128.8
+uvicorn[standard]==0.39.0
+pydantic==2.13.5
+
+# pgvector-backed production vector store (see vector_store.PgVectorStore)
+psycopg[binary]==3.2.13
+pgvector==0.4.2
+
+# Tests
+pytest==8.4.2
+httpx==0.28.1

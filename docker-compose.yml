@@ -1,0 +1,29 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: semantic-search-pgvector
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: semantic_search
+      POSTGRES_PASSWORD: semantic_search
+      POSTGRES_DB: semantic_search
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgvector_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U semantic_search"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgvector_data:
+
+# Usage:
+#   docker compose up -d db
+#   export SEMANTIC_SEARCH_PG_DSN="postgresql://semantic_search:semantic_search@localhost:5432/semantic_search"
+#   uvicorn semantic_search.api:app --reload
+#
+# With SEMANTIC_SEARCH_PG_DSN set, src/semantic_search/api.py switches from
+# the local SQLiteVectorStore to vector_store.PgVectorStore automatically.

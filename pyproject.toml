@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semantic-search"
+version = "0.1.0"
+description = "Semantic search & content-based recommendation engine (BM25 + vector hybrid retrieval + ML re-ranker)"
+authors = [
+    { name = "Abhishek Kumar", email = "abhichaurasia42@gmail.com" }
+]
+requires-python = ">=3.9"
+readme = "README.md"
+license = { text = "MIT" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
